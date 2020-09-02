@@ -1,15 +1,22 @@
 package com.example.demo;
 
+import com.example.demo.entity.TenantContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.context.annotation.Bean;
+
+import java.util.function.Supplier;
 
 @SpringBootApplication
-@EnableJpaRepositories
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    @Bean
+    Supplier<Object> tenant() {
+        return TenantContext::getCurrentTenant;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
 }

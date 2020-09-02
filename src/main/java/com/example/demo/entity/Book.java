@@ -1,24 +1,21 @@
 package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table
+@Document(collection = "#{@tenant.get()}_book")
 public class Book {
     @Id
-    private Long id;
+    private String id;
 
     public Book() {
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -40,7 +37,6 @@ public class Book {
         this.author = author;
     }
 
-    @ManyToOne
     private Author author;
 
 }
