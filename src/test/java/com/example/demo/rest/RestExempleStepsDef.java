@@ -15,8 +15,7 @@ import java.io.IOException;
 import static com.jayway.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.equalTo;
 
-@ContextConfiguration(classes = DemoApplication.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+
 public class RestExempleStepsDef {
 
     private String data;
