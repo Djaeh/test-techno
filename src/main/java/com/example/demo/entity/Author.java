@@ -1,29 +1,26 @@
 package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
-@Entity
+@Document
 public class Author {
 
     @Id
-    private Long id;
+    private String id;
 
     private String name;
     private String firstName;
 
-    @OneToMany
-    @JoinColumn(name = "author_id")
     private List<Book> books;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

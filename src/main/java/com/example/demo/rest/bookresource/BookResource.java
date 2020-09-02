@@ -4,9 +4,7 @@ import com.example.demo.entity.Book;
 import com.example.demo.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
@@ -24,5 +22,11 @@ public class BookResource {
             return book;
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "book not found");
+    }
+
+    @PostMapping("api/book")
+    public String addBook(@RequestBody Book book) {
+        bookRepository.save(book);
+        return "ok";
     }
 }

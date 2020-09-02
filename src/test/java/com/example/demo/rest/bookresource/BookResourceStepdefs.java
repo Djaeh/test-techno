@@ -8,15 +8,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.sql.SQLException;
+
 import java.util.Map;
 
 import static com.jayway.restassured.RestAssured.get;
