@@ -1,7 +1,5 @@
 package com.example.demo.security;
 
-import com.example.demo.entity.TenantContext;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +17,6 @@ public class TenantFilter implements Filter {
             httpResponse.setStatus(400);
             return;
         }
-        TenantContext.setCurrentTenant(tenantID);
         filterChain.doFilter(servletRequest, servletResponse);
     }
 }

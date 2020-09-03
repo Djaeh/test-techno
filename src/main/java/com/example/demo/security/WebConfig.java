@@ -8,10 +8,11 @@ import org.springframework.context.annotation.Configuration;
 public class WebConfig {
 
     @Bean
+    //technical path should be exclude from this filter
     public FilterRegistrationBean<TenantFilter> tenantFilter() {
         FilterRegistrationBean<TenantFilter> filter = new FilterRegistrationBean<>();
         filter.setFilter(new TenantFilter());
-        filter.addUrlPatterns("/*");
+        filter.addUrlPatterns("/api/*");
         filter.setName("TenantFilter");
         return filter;
     }
