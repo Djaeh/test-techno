@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+//The use of thread context might go against hexagonal architecture rules... let's be careful before using it.
 public class TenantContext {
     private static ThreadLocal<Object> currentTenant = new ThreadLocal<>();
 
